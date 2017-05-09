@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AppGym</string>
+    <string-array name="ejercicios">
+        <item>Abdominales</item>
+        <item>Correr</item>
+        <item>Flexiones</item>
+        <item>Sentadillas</item>
+    </string-array>
 </resources>

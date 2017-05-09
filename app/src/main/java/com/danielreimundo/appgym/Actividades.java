@@ -7,7 +7,9 @@ public class Actividades extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        this.setTitle("Ejercicios");
         setContentView(R.layout.activity_actividades);
     }
 }

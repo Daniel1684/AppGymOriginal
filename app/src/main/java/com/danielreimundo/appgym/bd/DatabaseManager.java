@@ -2,6 +2,7 @@ package com.danielreimundo.appgym.bd;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.danielreimundo.appgym.rutinas.Abdominales;
@@ -42,8 +43,30 @@ public class DatabaseManager {
 
         bd.insert("rutina",null,getContenedor(rutina));
 
-
     }
+
+    public Cursor consultar(){
+        Cursor c = null;
+        return c;
+    }
+
+    public int borrar(int id){
+
+        int borrado = bd.delete("rutina","id="+id,null);
+        return borrado;
+    }
+
+    //Borra la última entrada
+    public int borrar(){
+        int id= 0;
+        Cursor c = consultar();
+        consultar().moveToFirst();
+        id=c.getInt(0);
+        //Completar con consulta para sacar id de la última rutina y meter en id
+        int borrar = borrar(id);
+        return borrar;
+    }
+
 
     private static ContentValues getContenedor(Rutina rutina){
         ContentValues cv = new ContentValues();

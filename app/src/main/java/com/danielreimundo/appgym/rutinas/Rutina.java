@@ -10,8 +10,8 @@ public abstract class Rutina {
 
     private String nombre;
     private int tiempo; // tiempo de la rutina en segundos
-    private int semana;
-    private int dia;
+    private int semana;// ojo peligro fecha !!
+    private int dia;// lo k diga arriba !!
     private String dificultad;
 
 

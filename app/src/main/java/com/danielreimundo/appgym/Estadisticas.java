@@ -8,6 +8,7 @@ public class Estadisticas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("Gráficas");
         setContentView(R.layout.activity_estadisticas);
     }
 }

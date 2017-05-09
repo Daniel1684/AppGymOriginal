@@ -11,21 +11,53 @@
         android:id="@+id/imageButton"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@mipmap/logoGym"
-        android:layout_above="@+id/imageButton2"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="61dp"
-        android:background="#FFFFFF"/>
+        android:layout_marginTop="33dp"
+        android:background="#FFFFFF"
+        android:onClick="abrirActividades"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/logogym"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ejercicios"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="181dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/imageButton"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginBottom="73dp"
+        android:layout_above="@+id/textView"
+        android:layout_alignStart="@+id/imageButton"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
+        android:onClick="abrirEstadisticas"
         android:scaleType="fitXY"
         app:srcCompat="@mipmap/estadisticas"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Graficas"
+        android:textAlignment="center"
+        android:textSize="20dp"
+
+        android:layout_marginBottom="41dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageButton"
-        android:background="#FFFFFF"/>
+        android:layout_alignEnd="@+id/textView2" />
+
 </RelativeLayout>
