@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context="com.danielreimundo.appgym.MainActivity">
 
 
@@ -25,14 +26,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
         android:text="Ejercicios"
         android:textAlignment="center"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="181dp"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/imageButton"
-        android:layout_centerHorizontal="true" />
+        tools:layout_editor_absoluteY="181dp" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -52,12 +53,12 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="41dp"
+
         android:text="Graficas"
         android:textAlignment="center"
-        android:textSize="20dp"
-
-        android:layout_marginBottom="41dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textView2" />
+        android:textSize="20dp" />
 
 </RelativeLayout>

@@ -10,24 +10,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 
-    public static String nombreBD="appgym.sqlite";
+    public static String nombreBD="appgym.db";
     public static int version=1;
 
     public DatabaseHelper (Context context){
         super(context,nombreBD,null,version);
-
-
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-
+        db.execSQL(DatabaseManager.crearTabla());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

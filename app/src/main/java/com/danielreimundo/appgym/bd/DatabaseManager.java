@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.danielreimundo.appgym.rutinas.Abdominales;
 import com.danielreimundo.appgym.rutinas.Correr;
-import com.danielreimundo.appgym.rutinas.FlexionesdeBrazos;
+import com.danielreimundo.appgym.rutinas.Flexiones;
 import com.danielreimundo.appgym.rutinas.Rutina;
 import com.danielreimundo.appgym.rutinas.RutinaNoRepetible;
 import com.danielreimundo.appgym.rutinas.RutinaRepetible;
@@ -24,48 +24,50 @@ public class DatabaseManager {
     public DatabaseManager(Context context){
         helper=new DatabaseHelper(context);
         bd=helper.getWritableDatabase();
-
     }
 
     public static String crearTabla(){
         String consulta="create table rutina(";
         consulta+= "id integer primary key autoincrement," ;
-        consulta+="nombre text not null,";
-        consulta+="tiempo integer,";
-        consulta+="repeticiones integer,";
-        consulta+="serie integer,";
-        consulta+="distancia real";
+        consulta+=" nombre text not null,";
+        consulta+=" tiempo integer,";
+        consulta+=" repeticiones integer,";
+        consulta+=" serie integer,";
+        consulta+=" distancia real,";
+        consulta+=" dificultad text,";
+        consulta+=" dia integer,";
+        consulta+=" semana integer,";
+        consulta+=" tipoRecorrido text";
         consulta+=");";
     return consulta;
     }
 
-    public void ingresarRutina(Rutina rutina){
+    public long ingresarRutina(Rutina rutina){
 
-        bd.insert("rutina",null,getContenedor(rutina));
+        return bd.insert("rutina",null,getContenedor(rutina));
+
 
     }
 
-    public Cursor consultar(){
+    public Cursor consultar(int id){
         Cursor c = null;
+        c=bd.rawQuery("Select * from rutina where id=" + id, null);
+
         return c;
     }
 
     public int borrar(int id){
-
-        int borrado = bd.delete("rutina","id="+id,null);
+        int borrado = bd.delete("rutina", "id=" + id, null);
         return borrado;
     }
 
-    //Borra la última entrada
-    public int borrar(){
-        int id= 0;
-        Cursor c = consultar();
-        consultar().moveToFirst();
-        id=c.getInt(0);
-        //Completar con consulta para sacar id de la última rutina y meter en id
-        int borrar = borrar(id);
-        return borrar;
+    public int modificar(Rutina rutina, int id){
+        ContentValues cv = getContenedor(rutina);
+
+        // con esto modifico la rutina con el id de la funcion
+        return bd.update("rutina", cv, "id = " + id, null);
     }
+
 
 
     private static ContentValues getContenedor(Rutina rutina){
@@ -90,8 +92,8 @@ public class DatabaseManager {
             if(rutina instanceof Abdominales){
                 Abdominales o=  (Abdominales) rutina;
 
-            }else if (rutina instanceof FlexionesdeBrazos){
-                FlexionesdeBrazos o=(FlexionesdeBrazos) rutina;
+            }else if (rutina instanceof Flexiones){
+                Flexiones o=(Flexiones) rutina;
 
 
             }else if(rutina instanceof Sentadillas){
@@ -101,4 +103,5 @@ public class DatabaseManager {
 
         return cv;
   }
+
 }

@@ -5,22 +5,23 @@ package com.danielreimundo.appgym.rutinas;
  */
 
 public class Correr extends RutinaNoRepetible{
-    private int tiempo;
+
     private double distancia;
     private String tipoRecorrido;
+    public static String nombre="Correr";
 
+    public Correr( int tiempo, int semana, int dia, String dificultad,
+                  double distancia,String tipoRecorrido) {
 
-
-
-    @Override
-    public int getTiempo() {
-        return tiempo;
+        super(nombre, tiempo, semana, dia, dificultad);
+        this.distancia=distancia;
+        this.tipoRecorrido=tipoRecorrido;
     }
 
-    @Override
-    public void setTiempo(int tiempo) {
-        this.tiempo = tiempo;
+    public Correr(int tiempo, double distancia ){
+        this(tiempo, 0, 0, null, distancia,null);
     }
+
 
     public double getDistancia() {
         return distancia;

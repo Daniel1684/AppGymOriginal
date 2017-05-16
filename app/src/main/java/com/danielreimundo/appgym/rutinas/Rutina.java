@@ -14,6 +14,16 @@ public abstract class Rutina {
     private int dia;// lo k diga arriba !!
     private String dificultad;
 
+    public Rutina(String nombre, int tiempo, int semana , int dia, String dificultad){
+
+        this.nombre=nombre;
+        this.tiempo=tiempo;
+        this.semana=semana;
+        this.dia=dia;
+        this.dificultad=dificultad;
+    }
+
+
 
     public String getNombre() {
         return nombre;
