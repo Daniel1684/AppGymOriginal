@@ -36,8 +36,7 @@ public class DatabaseManager {
         consulta+=" distancia real,";
         consulta+=" dificultad text,";
         consulta+=" dia integer,";
-        consulta+=" semana integer,";
-        consulta+=" tipoRecorrido text";
+        consulta+=" semana integer";
         consulta+=");";
     return consulta;
     }
@@ -74,6 +73,9 @@ public class DatabaseManager {
         ContentValues cv = new ContentValues();
         cv.put("nombre", rutina.getNombre());
         cv.put("tiempo", rutina.getTiempo());
+        cv.put("dificultad", rutina.getDificultad());
+        cv.put("dia", rutina.getDia());
+        cv.put("semana", rutina.getSemana());
 
 
         if(rutina instanceof RutinaNoRepetible){
