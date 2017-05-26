@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setTitle("Menu Principal");
+        this.setTitle("Menú Principal");
         setContentView(R.layout.activity_main);
 
     }

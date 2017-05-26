@@ -31,7 +31,7 @@ public class Actividades extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        this.setTitle("Ejercicios");
+        this.setTitle("Ejercicios :");
         setContentView(R.layout.actividades);
         spinner = (Spinner) findViewById(R.id.spinner_actividades_tipos_ejercicios);
         tiempo= (EditText) findViewById(R.id.et_actividades_tiempo);

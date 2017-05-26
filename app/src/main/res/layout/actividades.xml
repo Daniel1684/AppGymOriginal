@@ -70,8 +70,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Dia"
-                android:inputType="textPersonName"
-                android:visibility="gone"/>
+                android:inputType="number"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/et_actividades_semana"
@@ -79,8 +79,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Semana"
-                android:inputType="textPersonName"
-                android:visibility="gone"/>
+                android:inputType="number"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_actividades_dificultad"
