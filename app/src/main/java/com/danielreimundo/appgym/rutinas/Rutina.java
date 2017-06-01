@@ -23,7 +23,9 @@ public abstract class Rutina {
         this.dificultad=dificultad;
     }
 
+    public Rutina(){
 
+    }
 
     public String getNombre() {
         return nombre;

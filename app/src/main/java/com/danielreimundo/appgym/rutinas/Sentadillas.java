@@ -15,4 +15,7 @@ public class Sentadillas extends RutinaRepetible{
         this( 0, 0, 0, null, repeticiones,serie);
     }
 
+    public  Sentadillas() {
+        super();
+    }
 }

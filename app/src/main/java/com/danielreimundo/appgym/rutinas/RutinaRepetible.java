@@ -16,6 +16,10 @@ public class RutinaRepetible extends Rutina{
         this.serie=serie;
     }
 
+    public RutinaRepetible(){
+        super();
+    }
+
     public int getRepeticiones() {
         return repeticiones;
     }

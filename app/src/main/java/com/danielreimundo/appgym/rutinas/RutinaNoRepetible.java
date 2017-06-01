@@ -10,6 +10,8 @@ public class RutinaNoRepetible extends Rutina{
     public RutinaNoRepetible(String nombre, int tiempo, int semana, int dia, String dificultad) {
         super(nombre, tiempo, semana, dia, dificultad);
     }
-
+    public RutinaNoRepetible(){
+        super();
+    }
 
 }

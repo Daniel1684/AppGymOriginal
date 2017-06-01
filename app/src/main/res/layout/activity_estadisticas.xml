@@ -6,28 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.danielreimundo.appgym.Estadisticas">
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/lista_rutinas"
         android:layout_width="368dp"
         android:layout_height="495dp"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        // Configuracion de las graficas de la aplicación
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/chart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible" />
-
-        <Spinner
-            android:id="@+id/spinner_estadisticas_tipos_ejercicios"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/ejercicios"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="5dp" />
-
-    </RelativeLayout>
+        tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>

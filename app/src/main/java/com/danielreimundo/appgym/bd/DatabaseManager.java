@@ -42,17 +42,19 @@ public class DatabaseManager {
     }
 
     public long ingresarRutina(Rutina rutina){
-
         return bd.insert("rutina",null,getContenedor(rutina));
-
-
     }
 
-    public Cursor consultar(int id){
+    public Cursor getAll(int id){
         Cursor c = null;
         c=bd.rawQuery("Select * from rutina where id=" + id, null);
-
         return c;
+    }
+
+    // Configuración de consultas ---
+    public Cursor getHorasCorrer(){
+
+        return null;
     }
 
     public int borrar(int id){
@@ -69,6 +71,8 @@ public class DatabaseManager {
 
 
 
+
+// aqui pa abajo no!!
     private static ContentValues getContenedor(Rutina rutina){
         ContentValues cv = new ContentValues();
         cv.put("nombre", rutina.getNombre());

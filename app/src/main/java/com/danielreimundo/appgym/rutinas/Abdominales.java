@@ -14,5 +14,9 @@ public class Abdominales extends RutinaRepetible{
     public Abdominales(int repeticiones, int serie){
         this(0, 0, 0, null, repeticiones,serie);
     }
+    public Abdominales(){
+
+    }
+
 
 }

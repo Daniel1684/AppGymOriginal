@@ -22,6 +22,8 @@ public class Correr extends RutinaNoRepetible{
         this(tiempo, 0, 0, null, distancia);
     }
 
+    public Correr(){
+    }
 
     public double getDistancia() {
         return distancia;

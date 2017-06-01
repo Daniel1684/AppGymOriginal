@@ -14,5 +14,7 @@ public class Flexiones extends RutinaRepetible{
     public Flexiones(int repeticiones, int serie){
         this( 0, 0, 0, null, repeticiones,serie);
     }
+    public Flexiones(){
+    }
 
 }
