@@ -61,11 +61,11 @@ public class Actividades extends AppCompatActivity {
         guardar=(Button)findViewById(R.id.button_actividades_guardar);
 
         db = new DatabaseManager(this);
+
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
 
                 switch (position) {
                     case 0:
@@ -156,7 +156,10 @@ public class Actividades extends AppCompatActivity {
         rutina.setDia(Integer.parseInt(dia.getText().toString()));
         rutina.setTiempo(Integer.parseInt(tiempo.getText().toString()));
         rutina.setSemana(Integer.parseInt(semana.getText().toString()));
-        rutina.setDificultad(dificultad.toString());
+
+        int idDificultad = dificultad.getCheckedRadioButtonId();
+        RadioButton dificultadBoton = (RadioButton) findViewById(idDificultad);
+        rutina.setDificultad(dificultadBoton.getText().toString());
 
 
         if(rutina instanceof Abdominales){

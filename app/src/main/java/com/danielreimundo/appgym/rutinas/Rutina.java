@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by daniel.reimundo on 8/05/17.
  */
 
-public abstract class Rutina {
+public  class Rutina {
 
     private String nombre;
     private int tiempo; // tiempo de la rutina en segundos
@@ -22,6 +22,8 @@ public abstract class Rutina {
         this.dia=dia;
         this.dificultad=dificultad;
     }
+
+
 
     public Rutina(){
 

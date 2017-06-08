@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.danielreimundo.appgym.rutinas.Abdominales;
 import com.danielreimundo.appgym.rutinas.Correr;
@@ -13,6 +14,9 @@ import com.danielreimundo.appgym.rutinas.RutinaNoRepetible;
 import com.danielreimundo.appgym.rutinas.RutinaRepetible;
 import com.danielreimundo.appgym.rutinas.Sentadillas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by daniel.reimundo on 8/05/17.
  */
@@ -20,6 +24,7 @@ import com.danielreimundo.appgym.rutinas.Sentadillas;
 public class DatabaseManager {
     public DatabaseHelper helper;
     public SQLiteDatabase bd;
+
 
     public DatabaseManager(Context context){
         helper=new DatabaseHelper(context);
@@ -45,9 +50,23 @@ public class DatabaseManager {
         return bd.insert("rutina",null,getContenedor(rutina));
     }
 
-    public Cursor getAll(int id){
+    public Cursor getAll(){
         Cursor c = null;
-        c=bd.rawQuery("Select * from rutina where id=" + id, null);
+        c=bd.rawQuery("Select * from rutina" , null);
+
+        return c;
+    }
+
+    public Cursor getRutina(String nombre){
+        Cursor c=null;
+        c=bd.rawQuery("Select * from rutina where nombre = '" + nombre + "' order by id desc ", null);
+        return c;
+    }
+
+    public Cursor getRutinas(String tipoRutina){
+        Cursor c=null;
+        c=bd.rawQuery("Select * from rutina where nombre = " + tipoRutina, null);
+
         return c;
     }
 
@@ -68,6 +87,8 @@ public class DatabaseManager {
         // con esto modifico la rutina con el id de la funcion
         return bd.update("rutina", cv, "id = " + id, null);
     }
+
+
 
 
 

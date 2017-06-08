@@ -29,7 +29,7 @@
         android:layout_below="@+id/imageButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:text="Ejercicios"
+        android:text="Crear Ejercicio"
         android:textAlignment="center"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="149dp"
@@ -45,7 +45,7 @@
         android:background="#FFFFFF"
         android:onClick="abrirEstadisticas"
         android:scaleType="fitXY"
-        app:srcCompat="@mipmap/estadisticas"
+        app:srcCompat="@mipmap/lista001"
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="265dp" />
 
@@ -53,11 +53,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="41dp"
 
-        android:text="Gráficas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp"
+        android:text="Lista de Ejercicios"
         android:textAlignment="center"
         android:textSize="20dp" />
 
