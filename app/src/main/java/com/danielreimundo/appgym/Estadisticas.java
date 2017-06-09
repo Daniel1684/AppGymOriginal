@@ -11,6 +11,9 @@ import android.widget.CursorAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.danielreimundo.appgym.Adapter.GymAdapter;
 import com.danielreimundo.appgym.bd.DatabaseHelper;
 import com.danielreimundo.appgym.bd.DatabaseManager;
 import com.danielreimundo.appgym.rutinas.Abdominales;
@@ -19,13 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Estadisticas extends AppCompatActivity {
-
-
+public class Estadisticas extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private DatabaseManager db;
-    private List<String> lista = new ArrayList<String>();
+    private List<String> lista = new ArrayList<>();
     public Spinner spinni;
+    public TextView tvNombre;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +35,15 @@ public class Estadisticas extends AppCompatActivity {
         setContentView(R.layout.activity_estadisticas);
         spinni = (Spinner)findViewById(R.id.spinner_estadistica_spinni);
 
+
         db = new DatabaseManager(this);
 
-        Cursor c = db.getAll();
-        leerTodo();
-        leerRutina("Correr");
+        //-----------------
 
+
+
+        //leerRutina("Correr");
+        leerRutina("Flexiones");
 
         spinni.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -94,28 +99,38 @@ public class Estadisticas extends AppCompatActivity {
 
 
 
-
+/*
     public void leerTodo(){
 
         Cursor c = db.getAll();
         System.out.println(DatabaseUtils.dumpCursorToString(c));
 
     }
+    */
 
 
     public List<String> leerRutina(String rut){
 
         Cursor c = db.getRutina(rut);
+
         while(c.moveToNext()){
-
+            lista.add(c.getString(0));
             lista.add(c.getString(1));
-
-            System.out.println("======================="+c.getString(1));
+            lista.add(c.getString(2));
+            lista.add(c.getString(3));
+            lista.add(c.getString(4));
+            lista.add(c.getString(5));
+            lista.add(c.getString(6));
+            lista.add(c.getString(7));
+            lista.add(c.getString(8));
+            lista.add(c.getString(9));
 
         }
 
-        System.out.println(DatabaseUtils.dumpCursorToString(c));
+        //System.out.println(DatabaseUtils.dumpCursorToString(c));
 
+        System.out.println(lista);
+        System.out.println(lista.size());
         return lista;
     }
 
@@ -128,4 +143,8 @@ public class Estadisticas extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
 }
