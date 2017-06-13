@@ -31,6 +31,7 @@
 
         android:layout_width="368dp"
         android:layout_height="0dp"
+
         android:layout_marginTop="2dp"
         app:layout_constraintLeft_toLeftOf="@+id/spinner_estadistica_spinni"
         app:layout_constraintTop_toBottomOf="@+id/spinner_estadistica_spinni" />

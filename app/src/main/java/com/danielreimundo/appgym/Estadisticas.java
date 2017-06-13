@@ -27,7 +27,7 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
     private DatabaseManager db;
     private List<String> lista = new ArrayList<>();
     public Spinner spinni;
-    public TextView tvNombre;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +37,16 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
 
 
         db = new DatabaseManager(this);
-
-        //-----------------
-
-
-
-        //leerRutina("Correr");
         leerRutina("Flexiones");
+        db.borrar(9);
+
+        //GymAdapter gymAdapter = new GymAdapter(this, null);
+
+       // GymAdapter gymAdapter = new ArrayList<String>(this, android.R.layout.simple_expandable_list_item_1,lista);
+        //ListView lv =(ListView)findViewById(android.R.id.list);
+
+        //lv.setAdapter(gymAdapter);
+
 
         spinni.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -52,38 +55,26 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
                 String temp=null;
                 switch (position) {
                     case 0:
-
-
                         break;
-
 
                     case 1: //abdominales
                         temp="Abdominales";
                         leerRutina(temp);
-
-
                         break;
 
                     case 2: //correr
                         temp="Correr";
                         leerRutina(temp);
-
-
                         break;
 
                     case 3: // Flexiones
                         temp="Fleciones";
                         leerRutina(temp);
-
-
                         break;
 
                     case 4: //Sentadillas
                         temp="Sentadillas";
                         leerRutina(temp);
-
-
-
                         break;
                 }
             }
@@ -97,37 +88,15 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
-
-
-/*
-    public void leerTodo(){
-
-        Cursor c = db.getAll();
-        System.out.println(DatabaseUtils.dumpCursorToString(c));
-
-    }
-    */
-
-
     public List<String> leerRutina(String rut){
 
         Cursor c = db.getRutina(rut);
-
+        lista.clear();
         while(c.moveToNext()){
-            lista.add(c.getString(0));
-            lista.add(c.getString(1));
-            lista.add(c.getString(2));
-            lista.add(c.getString(3));
-            lista.add(c.getString(4));
-            lista.add(c.getString(5));
-            lista.add(c.getString(6));
-            lista.add(c.getString(7));
-            lista.add(c.getString(8));
-            lista.add(c.getString(9));
-
+            for(int i=0; i<10;i++){
+                lista.add(c.getString(i));
+            }
         }
-
-        //System.out.println(DatabaseUtils.dumpCursorToString(c));
 
         System.out.println(lista);
         System.out.println(lista.size());
@@ -135,11 +104,9 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
-
     @Override
     protected void onStart(){
         super.onStart();
-
 
     }
 

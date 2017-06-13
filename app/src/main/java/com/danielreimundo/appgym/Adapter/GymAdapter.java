@@ -64,4 +64,6 @@ public class GymAdapter extends ArrayAdapter<String>{
 
         return  customView;
     }
+
+
 }
