@@ -57,24 +57,28 @@ public class DatabaseManager {
         return c;
     }
 
-    public Cursor getRutina(String nombre){
-        Cursor c=null;
-        c=bd.rawQuery("Select * from rutina where nombre = '" + nombre + "' order by id desc ", null);
-        return c;
-    }
-
     public Cursor getRutinas(String tipoRutina){
         Cursor c=null;
-        c=bd.rawQuery("Select * from rutina where nombre = " + tipoRutina, null);
-
+        //c=bd.rawQuery("Select * from rutina where nombre = '" + nombre + "' order by id desc ", null);
+        if(tipoRutina=="Abdominales") {
+            c = bd.rawQuery("Select id, tiempo, repeticiones, serie from rutina where nombre = 'Abdominales' " +
+                    "order by id desc ", null);
+        }
+        else if(tipoRutina=="Correr"){
+            c = bd.rawQuery("Select id, tiempo, distancia from rutina where nombre = 'Correr' " +
+                    "order by id desc ", null);
+        }
+        else if(tipoRutina=="Flexiones"){
+            c = bd.rawQuery("Select id, tiempo, repeticiones, serie from rutina where nombre = 'Flexiones' " +
+                    "order by id desc ", null);
+        }
+        else if(tipoRutina=="Sentadillas"){
+            c = bd.rawQuery("Select id, tiempo, repeticiones, serie from rutina where nombre = 'Sentadillas' " +
+                    "order by id desc ", null);
+        }
         return c;
     }
 
-    // Configuración de consultas ---
-    public Cursor getHorasCorrer(){
-
-        return null;
-    }
 
     public int borrar(int id){
         int borrado = bd.delete("rutina", "id=" + id, null);
@@ -88,6 +92,49 @@ public class DatabaseManager {
         return bd.update("rutina", cv, "id = " + id, null);
     }
 
+    /*
+    public static List<Rutina> conversorLista(Cursor c){
+        List<Rutina> lista = new ArrayList<>();
+        Rutina rutina;
+        while(c.moveToNext()) {
+            rutina = new Rutina();
+            rutina.setDia(c.getInt(7));
+            rutina.setNombre(c.getString(1));
+            rutina.setDificultad(c.getString(6));
+            rutina.setSemana(c.getInt(8));
+            rutina.setTiempo(c.getInt(2));
+
+            if(c.getString(1) == "Abdominales") {
+                Abdominales ab = (Abdominales) rutina;
+                ab.setSerie(c.getInt(4));
+                ab.setRepeticiones(c.getInt(3));
+            }
+
+            else if(c.getString(1) == "Correr") {
+                Correr co = (Correr) rutina;
+                co.setDistancia(c.getInt(5));
+            }
+
+            else if(c.getString(1) == "Flexiones") {
+                Flexiones fl = (Flexiones) rutina;
+                fl.setSerie(c.getInt(4));
+                fl.setRepeticiones(c.getInt(3));
+
+            }
+
+            else if(c.getString(1) == "Sentadillas") {
+                Sentadillas se = (Sentadillas) rutina;
+                se.setSerie(c.getInt(4));
+                se.setRepeticiones(c.getInt(3));
+
+            }
+            lista.add(rutina);
+        }
+
+        System.out.println(lista.size());
+        System.out.println(lista);
+        return lista;
+    }*/
 
 
 

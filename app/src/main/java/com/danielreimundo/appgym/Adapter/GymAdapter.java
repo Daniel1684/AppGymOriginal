@@ -1,69 +1,46 @@
 package com.danielreimundo.appgym.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.danielreimundo.appgym.Estadisticas;
 import com.danielreimundo.appgym.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by daniel.reimundo on 9/06/17.
  */
 
-public class GymAdapter extends ArrayAdapter<String>{
-    private Context context;
-    private ArrayList datos;
+public class GymAdapter extends CursorAdapter{
 
 
-    public GymAdapter( Context context, ArrayList datos) {
-
-        super(context,R.layout.lista_ejercicios ,datos);
-        this.context = context;
-        this.datos = datos;
+    public  GymAdapter(Context context,Cursor cursor){
+        super(context,cursor,0);
     }
-
-
-
-    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View customView = inflater.inflate(R.layout.lista_ejercicios,parent,false);
-
-        String stringItem = getItem(position);
-
-        TextView titulo = (TextView)customView.findViewById(R.id.tv_lista_titulo);
-        TextView dia = (TextView)customView.findViewById(R.id.tv_lista_dia);
-        TextView semana = (TextView)customView.findViewById(R.id.tv_lista_semana);
-        TextView dificultad = (TextView)customView.findViewById(R.id.tv_lista_dificultad);
-        TextView tiempo = (TextView) customView.findViewById(R.id.tv_lista_titulo);
-        TextView serie = (TextView)customView.findViewById(R.id.tv_lista_serie);
-        TextView repeticiones = (TextView)customView.findViewById(R.id.tv_lista_repeticiones);
-        TextView distancia = (TextView)customView.findViewById(R.id.tv_lista_distancia);
-
-        titulo.setText(stringItem);
-        dia.setText(stringItem);
-        semana.setText(stringItem);
-        dificultad.setText(stringItem);
-        tiempo.setText(stringItem);
-        serie.setText(stringItem);
-        repeticiones.setText(stringItem);
-        distancia.setText(stringItem);
-
-        return  customView;
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        return LayoutInflater.from(context).inflate(R.layout.lista_ejercicios,parent,false);
     }
 
+    @Override
+    public void bindView(View view, Context context, Cursor cursor) {
 
+        TextView tvTiempo = (TextView)view.findViewById(R.id.tv_uno);
+        TextView tvTiempoSalida = (TextView)view.findViewById(R.id.tv_dos);
+        TextView tvRepeticiones = (TextView)view.findViewById(R.id.tv_tres);
+        TextView tvRepeticionesSalida = (TextView)view.findViewById(R.id.tv_cuatro);
+        TextView tvSerie = (TextView)view.findViewById(R.id.tv_cinco);
+        TextView tvSerieSalida = (TextView)view.findViewById(R.id.tv_seis);
+        TextView tvDistancia = (TextView)view.findViewById(R.id.tv_siete);
+        TextView tvDistanciaSalida = (TextView)view.findViewById(R.id.tv_ocho);
+        // mirar si el nombre "Tiempo" es correcto !!
+        int tiempo = cursor.getInt(cursor.getColumnIndexOrThrow("Tiempo"));
+
+       // int repeticion = cursor.getInt()
+
+
+    }
 }

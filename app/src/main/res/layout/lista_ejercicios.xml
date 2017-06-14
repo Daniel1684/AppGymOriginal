@@ -1,176 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <TextView
-        android:id="@+id/tv_ejercicios_salida_nombre"
+        android:id="@+id/tv_uno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="73dp"
-        android:layout_marginTop="7dp"
-        android:text="0"
-        app:layout_constraintLeft_toRightOf="@+id/tv_lista_titulo"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        android:text="TextView" />
 
     <TextView
-        android:id="@+id/tv_ejercicios_salida_dia"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_lista_titulo"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="0"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_ejercicios_salida_nombre"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_salida_nombre" />
-
-    <TextView
-        android:id="@+id/tv_ejercicios_salida_semana"
+        android:id="@+id/tv_dos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_lista_dia"
-        android:layout_marginLeft="0dp"
+        android:layout_marginStart="46dp"
+        android:text="TextView"
+        android:layout_above="@+id/tv_tres"
+        android:layout_toEndOf="@+id/tv_tres" />
+
+    <TextView
+        android:id="@+id/tv_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:text="0"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_ejercicios_salida_dia"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_salida_dia" />
+        android:text="TextView"
+        android:layout_below="@+id/tv_uno"
+        android:layout_alignStart="@+id/tv_uno" />
 
     <TextView
-        android:id="@+id/tv_ejercicios_salida_dificultad"
+        android:id="@+id/tv_cuatro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="0"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_ejercicios_salida_semana"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_salida_semana" />
+        android:text="TextView"
+        android:layout_below="@+id/tv_dos"
+        android:layout_alignStart="@+id/tv_dos"
+        android:layout_marginTop="11dp" />
 
     <TextView
-        android:id="@+id/tv_ejercicios_salida_serie"
+        android:id="@+id/tv_cinco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="0"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_ejercicios_salida_tiempo"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_salida_tiempo" />
+        android:text="TextView"
+        android:layout_alignBaseline="@+id/tv_seis"
+        android:layout_alignBottom="@+id/tv_seis"
+        android:layout_alignStart="@+id/tv_tres" />
 
     <TextView
-        android:id="@+id/tv_ejercicios_salida_tiempo"
+        android:id="@+id/tv_seis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="0"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_ejercicios_salida_dificultad"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_salida_dificultad" />
+        android:text="TextView"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/tv_cuatro"
+        android:layout_alignStart="@+id/tv_ocho" />
 
     <TextView
-        android:id="@+id/tv_ejercicios_salida_repeticiones"
+        android:id="@+id/tv_siete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-10dp"
-        android:layout_marginTop="11dp"
-        android:text="0"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_ejercicios_salida_serie"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_salida_serie" />
+        android:layout_alignStart="@+id/tv_cinco"
+        android:layout_alignTop="@+id/tv_ocho"
+        android:text="TextView" />
 
     <TextView
-        android:id="@+id/tv_lista_titulo"
+        android:id="@+id/tv_ocho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="7dp"
-        android:text="Nombre"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_lista_dia"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_lista_titulo"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="Dia"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_titulo" />
-
-    <TextView
-        android:id="@+id/tv_lista_semana"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_lista_dia"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="Semana"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_dia"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_dia" />
-
-    <TextView
-        android:id="@+id/tv_lista_dificultad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="Dificultad"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_semana"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_semana" />
-
-    <TextView
-        android:id="@+id/tv_lista_serie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="Serie"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_tiempo"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_tiempo" />
-
-    <TextView
-        android:id="@+id/tv_lista_tiempo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="8dp"
-        android:text="Tiempo"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_dificultad"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_dificultad" />
-
-    <TextView
-        android:id="@+id/tv_lista_repeticiones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="7dp"
-        android:text="Repeticiones"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_serie"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_serie" />
-
-    <TextView
-        android:id="@+id/tv_lista_distancia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Distancia"
-        android:layout_marginTop="7dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lista_repeticiones"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_lista_repeticiones" />
-
-    <TextView
-        android:id="@+id/tv_ejercicios_salida_distancia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="181dp" />
-
-</android.support.constraint.ConstraintLayout>
+        android:text="TextView"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/tv_seis"
+        android:layout_alignStart="@+id/tv_cuatro" />
+</RelativeLayout>
