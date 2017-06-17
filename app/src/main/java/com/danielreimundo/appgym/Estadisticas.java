@@ -1,22 +1,19 @@
 package com.danielreimundo.appgym;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Spinner;
-
+import com.danielreimundo.appgym.Adapter.GymAdapter;
 import com.danielreimundo.appgym.bd.DatabaseManager;
-import com.danielreimundo.appgym.rutinas.Rutina;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-public class Estadisticas extends AppCompatActivity  {
+public class Estadisticas extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private DatabaseManager db;
     private Spinner spinner;
-    private ArrayList<String> data;
-    private HashMap<String,ArrayList<String>> proto;
+    private GymAdapter gymAdapter;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,25 +21,48 @@ public class Estadisticas extends AppCompatActivity  {
         this.setTitle("Listas");
         setContentView(R.layout.activity_estadisticas);
         db = new DatabaseManager(this);
+        listView = (ListView) findViewById(R.id.listview_estadisticas);
+
 
         spinner = (Spinner) findViewById(R.id.spinner_estadistica_spinni);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String temp=null;
+
+                switch (position){
+                    case  0:
+                        break;
+                    case 1://abdominales
+                        temp = "Abdominales";
+                        break;
+                    case 2://Correr
+                        temp = "Correr";
+                        break;
+                    case 3://Flexiones
+                        temp = "Flexiones";
+                        break;
+                    case 4://sentadillas
+                        temp = "Sentadillas";
+                        break;
+                }
+                gymAdapter = new GymAdapter(getApplicationContext(),db.getRutinas(temp));
+                listView.setAdapter(gymAdapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
-    public  void loadData(){
-        data = new ArrayList<>();
-        data.add("Abdominales");
-        data.add("Flexiones");
-        data.add("Sentadillas");
-        data.add("Correr");
-        proto = new HashMap<>();
-      //  List<Rutina> rutinas = db.conversorLista(db.getRutina("Abdominales"));
-
-
-
-
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        db.borrar(id);
 
     }
-
-
 
 }

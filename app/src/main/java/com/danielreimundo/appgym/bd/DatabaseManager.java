@@ -33,7 +33,7 @@ public class DatabaseManager {
 
     public static String crearTabla(){
         String consulta="create table rutina(";
-        consulta+= "id integer primary key autoincrement," ;
+        consulta+= "_id integer primary key autoincrement," ;
         consulta+=" nombre text not null,";
         consulta+=" tiempo integer,";
         consulta+=" repeticiones integer,";
@@ -59,29 +59,26 @@ public class DatabaseManager {
 
     public Cursor getRutinas(String tipoRutina){
         Cursor c=null;
-        //c=bd.rawQuery("Select * from rutina where nombre = '" + nombre + "' order by id desc ", null);
+
         if(tipoRutina=="Abdominales") {
-            c = bd.rawQuery("Select id, tiempo, repeticiones, serie from rutina where nombre = 'Abdominales' " +
-                    "order by id desc ", null);
+            c = bd.rawQuery("SELECT _id, nombre, tiempo, repeticiones, serie, dia, semana, dificultad FROM rutina WHERE nombre = 'Abdominales' ORDER BY _id desc ", null);
         }
         else if(tipoRutina=="Correr"){
-            c = bd.rawQuery("Select id, tiempo, distancia from rutina where nombre = 'Correr' " +
-                    "order by id desc ", null);
+            c = bd.rawQuery("SELECT _id, nombre, tiempo, distancia, dia, semana, dificultad FROM rutina WHERE nombre = 'Correr' ORDER BY _id desc ", null);
         }
         else if(tipoRutina=="Flexiones"){
-            c = bd.rawQuery("Select id, tiempo, repeticiones, serie from rutina where nombre = 'Flexiones' " +
-                    "order by id desc ", null);
+            c = bd.rawQuery("SELECT _id,nombre, tiempo, repeticiones, serie, dia, semana, dificultad FROM rutina WHERE nombre = 'Flexiones' ORDER BY _id desc ", null);
         }
         else if(tipoRutina=="Sentadillas"){
-            c = bd.rawQuery("Select id, tiempo, repeticiones, serie from rutina where nombre = 'Sentadillas' " +
-                    "order by id desc ", null);
+            c = bd.rawQuery("SELECT _id, nombre, tiempo, repeticiones, serie, dia, semana,dificultad FROM rutina WHERE nombre = 'Sentadillas' ORDER BY _id desc ", null);
         }
         return c;
     }
 
 
-    public int borrar(int id){
-        int borrado = bd.delete("rutina", "id=" + id, null);
+    public int borrar(long id){
+        String _id = String.valueOf(id);
+        int borrado = bd.delete("rutina", "_id=" + _id, null);
         return borrado;
     }
 
@@ -89,58 +86,9 @@ public class DatabaseManager {
         ContentValues cv = getContenedor(rutina);
 
         // con esto modifico la rutina con el id de la funcion
-        return bd.update("rutina", cv, "id = " + id, null);
+        return bd.update("rutina", cv, "_id = " + id, null);
     }
 
-    /*
-    public static List<Rutina> conversorLista(Cursor c){
-        List<Rutina> lista = new ArrayList<>();
-        Rutina rutina;
-        while(c.moveToNext()) {
-            rutina = new Rutina();
-            rutina.setDia(c.getInt(7));
-            rutina.setNombre(c.getString(1));
-            rutina.setDificultad(c.getString(6));
-            rutina.setSemana(c.getInt(8));
-            rutina.setTiempo(c.getInt(2));
-
-            if(c.getString(1) == "Abdominales") {
-                Abdominales ab = (Abdominales) rutina;
-                ab.setSerie(c.getInt(4));
-                ab.setRepeticiones(c.getInt(3));
-            }
-
-            else if(c.getString(1) == "Correr") {
-                Correr co = (Correr) rutina;
-                co.setDistancia(c.getInt(5));
-            }
-
-            else if(c.getString(1) == "Flexiones") {
-                Flexiones fl = (Flexiones) rutina;
-                fl.setSerie(c.getInt(4));
-                fl.setRepeticiones(c.getInt(3));
-
-            }
-
-            else if(c.getString(1) == "Sentadillas") {
-                Sentadillas se = (Sentadillas) rutina;
-                se.setSerie(c.getInt(4));
-                se.setRepeticiones(c.getInt(3));
-
-            }
-            lista.add(rutina);
-        }
-
-        System.out.println(lista.size());
-        System.out.println(lista);
-        return lista;
-    }*/
-
-
-
-
-
-// aqui pa abajo no!!
     private static ContentValues getContenedor(Rutina rutina){
         ContentValues cv = new ContentValues();
         cv.put("nombre", rutina.getNombre());

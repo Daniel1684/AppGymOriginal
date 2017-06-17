@@ -141,8 +141,6 @@ public class Actividades extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
-                // sometimes you need nothing here
             }
         });
     }

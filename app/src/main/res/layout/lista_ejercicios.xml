@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/tv_uno"
@@ -15,25 +15,25 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="17dp"
         android:layout_marginTop="25dp"
-        android:text="TextView" />
+        android:text="Tiempo" />
 
     <TextView
         android:id="@+id/tv_dos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:text="TextView"
         android:layout_above="@+id/tv_tres"
-        android:layout_toEndOf="@+id/tv_tres" />
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="25dp"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/tv_tres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:text="TextView"
+        android:layout_alignStart="@+id/tv_uno"
         android:layout_below="@+id/tv_uno"
-        android:layout_alignStart="@+id/tv_uno" />
+        android:layout_marginTop="10dp"
+        android:text="Repeticiones" />
 
     <TextView
         android:id="@+id/tv_cuatro"
@@ -41,41 +41,106 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_below="@+id/tv_dos"
-        android:layout_alignStart="@+id/tv_dos"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/tv_dos" />
 
     <TextView
         android:id="@+id/tv_cinco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_alignBaseline="@+id/tv_seis"
-        android:layout_alignBottom="@+id/tv_seis"
-        android:layout_alignStart="@+id/tv_tres" />
+        android:layout_alignStart="@+id/tv_tres"
+        android:text="Serie"
+        android:layout_below="@+id/tv_dos"
+        android:layout_marginTop="40dp" />
 
     <TextView
         android:id="@+id/tv_seis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_cuatro"
         android:text="TextView"
-        android:layout_marginTop="17dp"
         android:layout_below="@+id/tv_cuatro"
-        android:layout_alignStart="@+id/tv_ocho" />
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/tv_siete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tv_cinco"
-        android:layout_alignTop="@+id/tv_ocho"
-        android:text="TextView" />
+        android:text="Distancia"
+        android:layout_below="@+id/tv_cinco"
+
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/tv_ocho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_seis"
         android:text="TextView"
-        android:layout_marginTop="18dp"
         android:layout_below="@+id/tv_seis"
-        android:layout_alignStart="@+id/tv_cuatro" />
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/tv_nueve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_siete"
+        android:layout_below="@+id/tv_siete"
+        android:layout_marginTop="10dp"
+        android:text="Dia" />
+
+    <TextView
+        android:id="@+id/tv_diez"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_ocho"
+        android:text="TextView"
+        android:layout_below="@+id/tv_ocho"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_once"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_nueve"
+        android:layout_below="@+id/tv_nueve"
+        android:layout_marginTop="10dp"
+        android:text="Semana" />
+
+    <TextView
+        android:id="@+id/tv_doce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_diez"
+        android:text="TextView"
+        android:layout_below="@+id/tv_diez"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_trece"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_once"
+        android:layout_below="@+id/tv_once"
+        android:layout_marginTop="10dp"
+        android:text="Dificultad" />
+
+    <TextView
+        android:id="@+id/tv_catorce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_doce"
+        android:text="TextView"
+        android:layout_below="@+id/tv_doce"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/button_lista_ejercicios_borrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/tv_dos"
+        android:layout_marginEnd="26dp"
+        android:text="X" />
 </RelativeLayout>
