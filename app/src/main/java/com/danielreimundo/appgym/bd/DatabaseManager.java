@@ -49,13 +49,13 @@ public class DatabaseManager {
     public long ingresarRutina(Rutina rutina){
         return bd.insert("rutina",null,getContenedor(rutina));
     }
-
+/*
     public Cursor getAll(){
         Cursor c = null;
         c=bd.rawQuery("Select * from rutina" , null);
 
         return c;
-    }
+    }*/
 
     public Cursor getRutinas(String tipoRutina){
         Cursor c=null;
@@ -81,13 +81,13 @@ public class DatabaseManager {
         int borrado = bd.delete("rutina", "_id=" + _id, null);
         return borrado;
     }
-
+/*
     public int modificar(Rutina rutina, int id){
         ContentValues cv = getContenedor(rutina);
 
         // con esto modifico la rutina con el id de la funcion
         return bd.update("rutina", cv, "_id = " + id, null);
-    }
+    }*/
 
     private static ContentValues getContenedor(Rutina rutina){
         ContentValues cv = new ContentValues();

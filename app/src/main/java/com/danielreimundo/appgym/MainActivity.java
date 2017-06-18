@@ -14,7 +14,7 @@ import com.danielreimundo.appgym.rutinas.Rutina;
 
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseManager db;
+  //  DatabaseManager db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

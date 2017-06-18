@@ -1,26 +1,33 @@
 package com.danielreimundo.appgym.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.CursorAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.danielreimundo.appgym.Estadisticas;
 import com.danielreimundo.appgym.R;
+import com.danielreimundo.appgym.bd.DatabaseManager;
 
 /**
  * Created by daniel.reimundo on 9/06/17.
  */
 
-public class GymAdapter extends CursorAdapter{
-
+public class GymAdapter extends CursorAdapter {
 
     public  GymAdapter(Context context,Cursor cursor){
         super(context,cursor,0);
     }
+
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         return LayoutInflater.from(context).inflate(R.layout.lista_ejercicios,parent,false);
@@ -28,7 +35,7 @@ public class GymAdapter extends CursorAdapter{
 
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+    public void bindView(View view, final Context context, final Cursor cursor) {
 
         TextView tvTiempo = (TextView)view.findViewById(R.id.tv_uno);
         TextView tvTiempoSalida = (TextView)view.findViewById(R.id.tv_dos);
@@ -38,22 +45,39 @@ public class GymAdapter extends CursorAdapter{
         TextView tvSerieSalida = (TextView)view.findViewById(R.id.tv_seis);
         TextView tvDistancia = (TextView)view.findViewById(R.id.tv_siete);
         TextView tvDistanciaSalida = (TextView)view.findViewById(R.id.tv_ocho);
-        //----------------
         TextView tvDia = (TextView)view.findViewById(R.id.tv_nueve);
         TextView tvDiaSalida = (TextView)view.findViewById(R.id.tv_diez);
         TextView tvSemana = (TextView)view.findViewById(R.id.tv_once);
         TextView tvSemanaSalida = (TextView)view.findViewById(R.id.tv_doce);
         TextView tvDificultad = (TextView)view.findViewById(R.id.tv_trece);
         TextView tvDificultadSalida = (TextView)view.findViewById(R.id.tv_catorce);
-        //----------------
         int distancia =0;
         int repeticion = 0;
         int serie = 0;
-        int tiempo = cursor.getInt(2);
         int dia = 0;
         int semana = 0;
         String dificultad = null;
+        int tiempo = cursor.getInt(2);
+        final int id = cursor.getInt(0);
+        DatabaseManager bd = new DatabaseManager(context);
 
+        ///--------------
+        final DatabaseManager db = null;
+        Button borrar = (Button)view.findViewById(R.id.button_lista_ejercicios_borrar);
+
+        final DatabaseManager finalBd = bd;
+        borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finalBd.borrar(id);
+                System.out.println("Se pulso el boton borrar "+id);
+              //  Toast.makeText(GymAdapter.this, "Se borro correctamente",Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+        //------------
 
         if(cursor.getString(1).equals("Correr")){
 
@@ -100,7 +124,6 @@ public class GymAdapter extends CursorAdapter{
         }else{
             tvDistanciaSalida.setText(String.valueOf(distancia));
         }
-        //----------------------
         if(dia == 0){
             tvDia.setVisibility(View.GONE);
             tvDiaSalida.setVisibility(View.GONE);
@@ -119,6 +142,5 @@ public class GymAdapter extends CursorAdapter{
         }else{
             tvDificultadSalida.setText(dificultad);
         }
-
     }
 }

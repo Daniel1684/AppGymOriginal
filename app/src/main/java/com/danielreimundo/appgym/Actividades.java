@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.danielreimundo.appgym.bd.DatabaseHelper;
 import com.danielreimundo.appgym.bd.DatabaseManager;
 import com.danielreimundo.appgym.rutinas.Abdominales;
@@ -22,6 +21,7 @@ import com.danielreimundo.appgym.rutinas.Flexiones;
 import com.danielreimundo.appgym.rutinas.Rutina;
 import com.danielreimundo.appgym.rutinas.Sentadillas;
 import com.danielreimundo.appgym.util.RutinaFactory;
+
 
 public class Actividades extends AppCompatActivity {
 

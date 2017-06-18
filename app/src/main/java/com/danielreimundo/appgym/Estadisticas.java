@@ -3,6 +3,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import com.danielreimundo.appgym.Adapter.GymAdapter;
@@ -14,6 +15,9 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
     private Spinner spinner;
     private GymAdapter gymAdapter;
     private ListView listView;
+    public Button borrar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,6 @@ public class Estadisticas extends AppCompatActivity implements AdapterView.OnIte
 
             }
         });
-
     }
 
     @Override
